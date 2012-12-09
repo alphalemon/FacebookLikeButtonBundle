@@ -1,0 +1,8 @@
+{
+    "autoload": {
+        "psr-0": { "AlphaLemon\\Block\\FacebookLikeButtonBundle": ""
+        }
+    },
+    "target-dir" : "AlphaLemon/Block/FacebookLikeButtonBundle",
+    "minimum-stability": "dev"
+}

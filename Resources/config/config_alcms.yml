@@ -1,0 +1,2 @@
+imports:
+- { resource: "@FacebookLikeButtonBundle/Resources/config/app_block.xml" }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="facebooklikebutton.editor_settings" type="collection">
+            <parameter key="rich_editor">true</parameter>
+        </parameter>
+
+        <parameter key="facebook_like_button.block.class">AlphaLemon\Block\FacebookLikeButtonBundle\Core\Block\AlBlockManagerFacebookLikeButton</parameter>
+        <parameter key="social.rendering.class">AlphaLemon\Block\FacebookLikeButtonBundle\Core\Listener\RenderingEditorListener</parameter>
+    </parameters>
+
+    <services>
+        <service id="facebook_like_button.block" class="%facebook_like_button.block.class%">
+            <argument type="service" id="alpha_lemon_cms.events_handler"/>
+            <tag name="alphalemon_cms.blocks_factory.block" description="Facebook Like Button" type="FacebookLikeButton" group="Facebook" />
+        </service>
+        
+        <service id="social.rendering" class="%social.rendering.class%">
+            <tag name="alcms.event_listener" event="actions.block_editor_rendering" method="onBlockEditorRendering" priority="0" />
+        </service>
+    </services>
+</container>

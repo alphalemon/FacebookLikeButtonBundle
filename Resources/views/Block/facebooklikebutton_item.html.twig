@@ -1,0 +1,44 @@
+{% extends "AlphaLemonCmsBundle:Block:Json/_item.html.twig" %}
+
+{% block form %}
+<div id="al_editor_tabs">
+    <ul>
+        <li><a href="#al-editor-tab-1">Like button</a></li>
+        <li><a href="#al-editor-tab-2">Open graph</a></li>
+    </ul>
+
+    <form id="{{ form_name }}" action="#" method="post" {{ form_enctype(form_like) }}>
+        <div id="al-editor-tab-1">
+            <table class="al_editor_table">
+                {% include "AlphaLemonCmsBundle:Block:Json/_form_renderer.html.twig" with {"form" : form_like} %}
+                <tr><td colspan="2">Leave the url empty to use the current page's url</td></tr>
+            </table>
+        </div>
+        <div id="al-editor-tab-2">
+            <table class="al_editor_table">
+                {% include "AlphaLemonCmsBundle:Block:Json/_form_renderer.html.twig" with {"form" : form_open_graph} %}
+                <tr><td colspan="2">Leave the url empty to use the current page's url</td></tr>
+                <tr><td colspan="2">Leave the title empty to use the current page's title</td></tr>
+            </table>
+        </div>
+    </form>    
+</div>
+{% endblock %}
+
+
+{% block commands %}
+    <br />
+    {{ parent() }}    
+{% endblock %}
+
+{% block script %}
+<script>
+    $('#al_editor_tabs').tabs();
+    $('.al_save_item').click(function()
+    {
+        $('#al_item_form').EditBlock('Content', $('#al_item_form').serialize());
+        
+        return false;
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,2 @@
+_al_facebook_bundle:
+    resource: "@FacebookLikeButtonBundle/Resources/config/routing/facebook.xml"

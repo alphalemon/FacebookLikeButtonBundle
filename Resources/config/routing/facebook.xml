@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<routes xmlns="http://symfony.com/schema/routing"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <route id="_show_facebook_like_widget_form" pattern="/backend/{_locale}/al_showFacebookLikeWidgetForm">
+        <default key="_controller">FacebookLikeButton:Facebook:showPropertiesForm</default>
+        <default key="_locale">en</default>
+    </route>
+</routes>
